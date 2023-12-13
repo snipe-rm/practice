@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プラグインの練習</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/jquery.bxslider.css">
+  <link rel="stylesheet" href="css/hamburgers.css">
+  <link rel="stylesheet" href="css/lightbox.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>秋のイメージ</h1>
+      <p class="hamburger hamburger--spin" id="ham-btn">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </p>
+    </div><!-- /.container -->
+  </header><!-- /.header -->
+  <nav id="gnav"></nav><!-- /#gnav -->
+  <div class="container">
+    <main class="main">
+      <h2>秋の風景（bxsliderの実装）</h2>
+      <div class="main-visual">
+        <ul class="bxslider">
+          <li><img src="img/slider-01.jpg" alt=""></li>
+          <li><img src="img/slider-02.jpg" alt=""></li>
+          <li><img src="img/slider-03.jpg" alt=""></li>
+          <li><img src="img/slider-04.jpg" alt=""></li>
+          <li><img src="img/slider-05.jpg" alt=""></li>
+        </ul><!-- /.bxslider -->
+      </div><!-- /.main-visual -->
+      <h2>秋のアイテム（Lightboxの実装）</h2>
+      <div class="lightbox-wrapper">
+        <div class="box">
+          <a href="img/lightbox-01.jpg" data-lightbox="images" data-title="紅葉">
+            <img src="img/lightbox-01.jpg" alt="">
+            <h3>紅葉</h3>
+            <p>紅葉の風景</p>
+          </a>
+        </div><!-- /.box -->
+        <div class="box">
+          <a href="img/lightbox-02.jpg" data-lightbox="images" data-title="秋祭りの提灯">
+            <img src="img/lightbox-02.jpg" alt="">
+            <h3>秋祭りの提灯</h3>
+            <p>秋のお祭りの提灯の写真</p>
+          </a>
+        </div><!-- /.box -->
+        <div class="box">
+          <a href="img/lightbox-03.jpg" data-lightbox="images" data-title="犬と枯葉">
+            <img src="img/lightbox-03.jpg" alt="">
+            <h3>犬と枯葉</h3>
+            <p>枯葉の中にうずくまる犬</p>
+          </a>
+        </div><!-- /.box -->
+        <div class="box">
+          <a href="img/lightbox-04.jpg" data-lightbox="images" data-title="ハロウィンのかぼちゃ１">
+            <img src="img/lightbox-04.jpg" alt="">
+            <h3>ハロウィン１</h3>
+            <p>ハロウィンのかぼちゃ</p>
+          </a>
+        </div><!-- /.box -->
+        <div class="box">
+          <a href="img/lightbox-05.jpg" data-lightbox="images" data-title="ハロウィンのかぼちゃ２">
+            <img src="img/lightbox-05.jpg" alt="">
+            <h3>ハロウィン２</h3>
+            <p>飾り彫りが施されたかぼちゃ</p>
+          </a>
+        </div><!-- /.box -->
+        <div class="box">
+          <a href="img/lightbox-06.jpg" data-lightbox="images" data-title="毬栗">
+            <img src="img/lightbox-06.jpg" alt="">
+            <h3>毬栗</h3>
+            <p>毬栗と栗</p>
+          </a>
+        </div><!-- /.box -->
+      </div><!-- /.lightbox-wrapper -->
+    </main><!-- /.main -->
+  </div><!-- /.container -->
+<footer class="footer">
+      <p><small>2023 &copy; mytheme</small></p>
+  </footer><!-- /.footer -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="js/jquery.bxslider.js"></script>
+  <script src="js/lightbox.js"></script>
+  <script>
+    $(function(){
+      //bxslider
+      $('.bxslider').bxSlider({
+        mode: 'fade',/* フェイドアウト */
+        speed: 3000,/* 画像の切り替わるスピード */
+        pause: 3000,/* 画像の静止する時間 */
+        /* speedとpauseを同じ大きな値を入れる事でクロスフェードにすることができる */
+        controls: false,/* 左右の矢印：false（消す） */
+        auto: true,/* 自動再生 */
+        pager: false,/* 画像下のページ表示のドット */
+      });
+
+      //ハンバーガーメニュー
+      $('#ham-btn').on('click',function(){
+        $(this).toggleClass('is-active');
+        //ナビゲーション部分
+        $('#gnav').toggleClass('show');
+      });
+
+    });
+  </script>
+</body>
+</html>

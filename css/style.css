@@ -1,0 +1,146 @@
+@charset "utf-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  vertical-align: bottom;
+  max-width: 100%;
+}
+
+
+/* 共通
+-------------------------------- */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 30px;
+}
+
+/* header
+---------------------------------- */
+.header {
+  background-color: #fdd405;
+  height: 100px;
+  margin-bottom: 50px;
+}
+.header > .container {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header h1 {
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 40px;
+}
+
+/* ナビゲーション部分
+---------------------------------- */
+#gnav {
+  width: 50%;
+  height: 100vh;
+  background-color: rgba(149, 125, 4, 0.8);
+  position: fixed;
+  top: 100px;
+  right: 0;
+  z-index: 10;
+  transform: translateX(100%);
+  transition: .2s;
+}
+#gnav.show {
+  transform: translateX(0);
+}
+
+/* bxslider部分
+---------------------------------- */
+.main-visual {
+  margin-bottom: 100px;
+}
+
+/* lightbox部分
+---------------------------------- */
+.lightbox-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px 30px;
+  margin-bottom: 100px;
+}
+.box {
+  width: calc((100% - 60px) / 3);
+  text-align: center;
+}
+.box h3 {
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 24px;
+}
+.box img {
+  margin-bottom: 10px;
+}
+
+/* footer
+---------------------------------- */
+.footer {
+  background-color: #947c04;
+  padding: 30px 0;
+  text-align: center;
+  color: #fff;
+}
+
+/* レスポンシブ設定
+---------------------------------- */
+/* 960px以下 */
+@media (max-width:960px){
+  .header > .container {
+    padding-left: 15px;
+  }
+  .lightbox-wrapper {
+    padding: 0 20px;
+  }
+  .box {
+    width: calc((100% - 30px) / 2);
+  }
+
+}
+
+/* 600px以下 */
+@media (max-width:500px){
+
+  /* bxsliderの画像の高さを維持したい場合 */
+  .main-visual {
+    /* 親の箱のサイズを指定 */
+    width: 100%;
+    height: 350px;
+  }
+  /* 画像の直の親にもサイズを指定 */
+  .main-visual li {
+    width: 100%;
+    height: 350px;
+  }
+  /* object-fit: cover;箱のサイズを写真で覆う設定をする */
+  /* width・height共に100%画像で覆うと指定する */
+  .main-visual img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .box {
+    width: 100%;
+  }
+
+}
